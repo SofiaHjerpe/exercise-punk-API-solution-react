@@ -1,28 +1,17 @@
-interface IRoute {
-  id: number;
-  name: string;
-  path: string;
+import { IRoute } from "../interfaces";
+
+interface IHeaderProps {
+    links: IRoute[]
 }
-export function Header(): JSX.Element {
-  const routes: IRoute[] = [
-    {
-      id: 1,
-      name: "Random beer",
-      path: "/",
-    },
-    {
-      id: 2,
-      name: "Search Page",
-      path: "/search",
-    },
-  ];
+export function Header(props: IHeaderProps): JSX.Element {
+  
   return (
     <header className="header">
       <h1>Welcome to punk api</h1>
       <nav className="navbar">
-        {routes.map((route) => (
-          <a className="link" href={route.path}>
-            {route.name}
+        {props.links.map((link) => (
+          <a key={link.id} className="link" href={link.path}>
+            {link.name}
           </a>
         ))}
       </nav>
