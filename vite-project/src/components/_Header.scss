@@ -1,0 +1,23 @@
+@use "../scss/abstracts/colors" as *;
+
+.header {
+  background-color: $blue;
+  padding-block: 0.5rem;
+
+  h1 {
+    color: $black;
+    text-align: center;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .link {
+      cursor: pointer;
+      color: $white;
+    }
+  }
+}
