@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { IRoute } from "../interfaces";
 
 interface IHeaderProps {
@@ -10,9 +11,9 @@ export function Header(props: IHeaderProps): JSX.Element {
       <h1>Welcome to punk api</h1>
       <nav className="navbar">
         {props.links.map((link) => (
-          <a key={link.id} className="link" href={link.path}>
+          <NavLink key={link.id} className="link" to={link.path}>
             {link.name}
-          </a>
+          </NavLink>
         ))}
       </nav>
     </header>

@@ -1,24 +1,26 @@
 import { LandingPage } from "./pages/LandingPage";
-import { Header } from "./components/Header";
-import { IRoute } from "./interfaces";
+
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";import RootLayout from "./components/RootLayout";
+import SearchPage from "./pages/SearchPage";
+
 
 function App() {
-  const links: IRoute[] = [
-    {
-      id: 1,
-      name: "Random beer",
-      path: "/",
-    },
-    {
-      id: 2,
-      name: "Search Page",
-      path: "/search",
-    },
-  ];
+  
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route>
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<LandingPage />} />
+          <Route path="/search" element={<SearchPage />} />
+        </Route>
+      </Route>
+    )
+  );
   return (
     <>
-      <Header links={links} />
-      <LandingPage />
+
+      <RouterProvider router={router} />
     </>
   );
 }
